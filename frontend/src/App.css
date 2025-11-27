@@ -1,0 +1,183 @@
+/* Reset and ensure full height */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #121212;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  overflow: hidden; /* Prevents scrolling */
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+  color: #00e5ff;
+  text-align: center;
+}
+
+/* The Main Split Layout */
+.grid-container {
+  display: flex;
+  flex: 1; /* Takes up all remaining space */
+  gap: 20px;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* LEFT SIDE: Camera Area */
+.camera-box {
+  flex: 2; /* Takes 2/3 of the width */
+  position: relative;
+  background: black;
+  border-radius: 12px;
+  border: 2px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Keeps aspect ratio without stretching */
+}
+
+.overlay-text {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  color: #00ff00;
+  font-weight: bold;
+  border-left: 4px solid #00ff00;
+}
+
+/* RIGHT SIDE: Controls Area */
+.controls-box {
+  flex: 1; /* Takes 1/3 of the width */
+  background: #1e1e1e;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto; /* Allows scroll ONLY inside controls if needed */
+  border: 1px solid #333;
+}
+
+.section {
+  background: #2d2d2d;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #3d3d3d;
+}
+
+h3 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Inputs and Buttons */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #121212;
+  color: white;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+  transition: transform 0.1s, opacity 0.2s;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.start-btn { background-color: #2ed573; }
+.active-btn { background-color: #ff4757; animation: pulse 1.5s infinite; }
+.train-btn { background-color: #1e90ff; }
+.predict-btn { background-color: #ffa502; color: black; }
+.speak-btn { background-color: #70a1ff; }
+.clear-btn { background-color: #57606f; }
+.add-word-btn { background-color: #3742fa; margin-top: 5px; padding: 5px; font-size: 0.9rem;}
+
+/* Output Area (Bottom Right) */
+.output-area {
+  margin-top: auto; /* Pushes to bottom of container */
+  background: #252525;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+textarea {
+  width: 100%;
+  height: 80px;
+  background: #121212;
+  color: #00e5ff;
+  border: 1px solid #444;
+  padding: 10px;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.status-log {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-top: 5px;
+  font-family: monospace;
+}
+
+.live-prediction {
+  background: #333;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
